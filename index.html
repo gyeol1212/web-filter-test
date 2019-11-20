@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="index.css">
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+    <script src="./clmtrackr.js"></script>
+    
+    <title>WebCam</title>
+  </head>
+  <body>
+    <h1>WebCam</h1>
+    <div style="position: relative;">
+      <video id="cam">
+      </video>
+      <canvas id="overlay"></canvas>
+    </div>
+    <form>
+      <fieldset id="photo-filter">
+        <legend>Color filter</legend>
+        <div>
+          <label for="brightness">밝기 - Brightness </label>
+          <input type="range" max="200" min="0" value="100" name="filter" id="brightness" />
+        </div>
+        <div>
+          <label for="saturate">채도 - Saturate</label>
+          <input type="range" max="200" min="0" value="100" name="filter" id="saturate" />
+        </div>
+        <div>
+          <label for="grayscale">흑백 - Grayscale</label>
+          <input type="range" max="100" min="0" value="0" name="filter" id="grayscale" />
+        </div>
+        <div>
+          <label for="sepia">세피아 - Sepia</label>
+          <input type="range" max="100" min="0" value="0" name="filter" id="sepia" />
+        </div>
+        <div>
+          <label for="invert">색 반전 - Invert</label>
+          <input type="range" max="100" min="0" value="0" name="filter" id="invert" />
+        </div>
+        <div>
+          <label for="hue">색조 - Hue</lable>
+          <input type="range" max="90" min="0" value="0" name="filter" id="hueRotate" />
+        </div>
+        <div>
+          <label for="blur">블러 - blur</label>
+          <input type="range" max="10" min="0" value="0" name="filter" id="blur" />
+        </div>
+        <div>
+          <label for="contrast">대비 - Contrast</label>
+          <input type="range" max="200" min="0" value="100" name="filter" id="contrast" />
+        </div>
+        <div>
+          <label for="opacity">투명도 - Opacity</label>
+          <input type="range" max="100" min="0" value="100" name="filter" id="opacity"/>
+        </div>
+      </fieldset>
+    </form>
+    <fieldset id="buttons">
+      <button id="capture">캡쳐</button>
+      <div id="preset">
+        <button name="feMorphology">filter1</button>
+        <button name="feColorMatrix">filter2</button>
+      </div>
+      <div id="img-filter">
+        <button id="rabbit">토끼귀</button>
+        <button id="tongue">메롱</button>
+      </div>
+    </fieldset>
+    <canvas id="canvas"></canvas>
+    <div id="photos"></div>
+    
+    <svg id="preset-svg">
+      <defs>
+        <filter id="feMorphology" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+          <feMorphology operator="erode" radius="2 2" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" result="morphology"/>
+        </filter>
+        <filter id="feColorMatrix" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feColorMatrix type="saturate" values="2" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" result="colormatrix"/>
+          </filter>
+      </defs>
+    </svg>
+    <script src="index.js"></script>
+  </body>
+</html>

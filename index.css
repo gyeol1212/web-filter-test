@@ -1,0 +1,31 @@
+#photo-filter div {
+  margin: 1rem;
+}
+
+#photo-filter label {
+  width: 100px;
+}
+
+#overlay {
+  position: absolute;
+  left: 0;
+}
+
+#photos {
+  display: flex;
+  overflow: auto;
+  width: 90%;
+  height: 220px;
+  border: 1px solid #191919;
+}
+
+fieldset,
+form {
+  margin: 1rem;
+  display: inline;
+}
+
+svg,
+#canvas {
+  display: none;
+}
